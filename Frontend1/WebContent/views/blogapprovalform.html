@@ -1,0 +1,24 @@
+<span style="color:red">{{error.message}}</span>
+<span ng-show="user.role!='ADMIN'">You are not authorized to view the content</span>
+<div ng-show="user.role=='ADMIN'">
+<div class="panel panel-info">
+<div class="panel-heading">
+<b>Blog Title: </b>{{blogPost.blogTitle}}<br>
+<b>Posted On :  </b>{{blogPost.postedOn | date:'dd-MMMM-yyyy'}}<br>
+<b>Posted By : </b> {{blogPost.postedBy.firstname}} &nbsp; {{blog.postedBy.lastname}}<br>
+<b>Email     :   </b> {{blogPost.postedBy.email}}<br>
+</div>
+<div class="panel-body">
+
+<p ng-bind-html="htmlContent">
+
+<div>
+<button class="btn btn-info" ng-click="approveBlogPost(blogPost.blogPostId)">Approve</button> &nbsp; 
+<button class="btn  btn-danger" ng-click="rejectBlogPost(blogPost.blogPostId)">Reject</button> &nbsp;
+</div>
+</div>
+
+
+</div>
+
+</div>
